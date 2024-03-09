@@ -1,0 +1,12 @@
+---
+- name: copy files from master to worker
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: copy files from master to worker
+      copy:
+        src: /home/ansible/task.yml
+        dest: /home/ansible/gowthamisuresh
+

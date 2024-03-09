@@ -1,0 +1,17 @@
+---
+- name: docker
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install docker
+      command: yum install docker -y
+    - name: start docker
+      command: systemctl start docker
+    - name: Check status
+      command: systemctl status docker
+    - name: pull nginx image
+      command: docker pull nginx
+    - name: run a container
+      command: docker run -it -d -p 8000:80 nginx

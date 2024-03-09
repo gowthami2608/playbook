@@ -1,0 +1,13 @@
+---
+- name: condition playbook
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install httpd for Dabian family
+      command: apt-get install apache2 -y
+      when: ansible_os_family == "Debian"
+    - name: install httpd for redhat family
+      command: yum install httpd -y
+      when: ansible_os_family == "RedHat"

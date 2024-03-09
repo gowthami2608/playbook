@@ -1,0 +1,19 @@
+---
+- name: Install Git and pull source code
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install git
+      shell: yum install git -y
+    - name: git initialize
+      shell: git init
+    - name: git config with username
+      shell: git config --global user.name "gowthami2608"
+    - name: git config with password
+      shell: git config --global user.email "gowthamisuresh.2608@gmail.com"
+    - name: check git version
+      shell: git --version
+    - name: to pull the source code
+      shell: git clone https://github.com/gowthami2608/maven.git  /home/ansible/gowthamisuresh

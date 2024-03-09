@@ -1,0 +1,13 @@
+---
+- name: variable section
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    pkgname: httpd
+  tasks:
+    - name: install httpd
+      command: yum install httpd -y
+    - name: start httpd
+      command: systemctl start httpd

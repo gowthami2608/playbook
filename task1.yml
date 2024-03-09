@@ -1,0 +1,10 @@
+---
+- name: task playbook
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install httpd
+      command: yum install httpd -y
+
